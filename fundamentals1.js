@@ -80,3 +80,89 @@ birthdaySearch(9, 25)
 // Leap Year
 // Write a function that determines whether a given year is a leap year. If a year is divisible by four, it is a leap year, unless it is divisible by 100. However, if it is divisible by 400, then it is.
 
+const isLeapYear = (year) => {
+    return year % 400 == 0? true : year % 100 == 0? false : year % 4 == 0? true : false
+}
+
+console.log(isLeapYear(1934))
+console.log(isLeapYear(2200))
+console.log(isLeapYear(2400))
+
+
+// Print and Count
+// Print all integer multiples of 5, from 512 to 4096. Afterward, also log how many there were.
+
+let count5s = 0
+for(let i = 512; i <= 4096; i++){
+    if(i % 5 == 0){
+        console.log(i)
+        count5s++
+        i += 4
+    }
+}
+
+console.log(`There were ${count5s} multiples of 5.`)
+
+
+// Multiples of Six
+// Print multiples of 6 up to 60,000, using a WHILE.
+
+let multiples = 6
+while(multiples <= 60_000){
+    console.log(multiples)
+    multiples += 6
+}
+
+
+// Counting, the Dojo Way
+// Print integers 1 to 100. If divisible by 5, print "Coding" instead. If by 10, also print " Dojo".
+
+for(let i = 1; i <= 100; i++){
+    if(i % 10 == 0) console.log('Coding Dojo')
+    else if(i % 5 == 0) console.log('Coding')
+    else console.log(i)
+}
+
+
+// What Do You Know?
+// Your function will be given an input parameter incoming. Please console.log this value.
+
+const printFunction = incoming => console.log(incoming)
+
+printFunction('hello')
+printFunction('world')
+printFunction('test3')
+
+
+// Whoa, That Sucker’s Huge…
+// Add odd integers from -300,000 to 300,000, and console.log the final sum. Is there a shortcut?
+
+let sum = 0
+for(let i = -299_999; i <= 300_000; i += 2){
+    sum += i
+}
+console.log(sum)
+
+
+// Countdown by Fours
+// Log positive numbers starting at 2016, counting down by fours (exclude 0), without a FOR loop.
+
+let countDown = 2016
+while(countDown > 0){
+    console.log(countDown)
+    countDown -= 4
+}
+
+
+// Flexible Countdown
+// Based on earlier “Countdown by Fours”, given lowNum, highNum, mult, print multiples of mult from highNum down to lowNum, using a FOR. For (2,9,3), print 9 6 3 (on successive lines).
+
+const countDownWithFor = (lowNum, highNum, mult) => {
+    for(let i = highNum; i >= lowNum; i--)
+        if(i % mult == 0){
+            console.log(i)
+        }
+}
+
+countDownWithFor(2, 9, 3)
+countDownWithFor(3, 17, 4)
