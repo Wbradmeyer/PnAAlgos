@@ -94,3 +94,77 @@ console.log(countPositives([-1,1,1,1,1]))
 three odd values in a row, print "That’s odd!" Every time the array has 
 three evens in a row, print "Even more so!" */
 
+const evensAndOdds = (arr) => {
+    if(arr.length < 3) return
+    for(let i = 2; i < arr.length; i++){
+        // console.log('arr[i] = ' + arr[i])
+        // console.log('arr[i-1] = ' + arr[i-1])
+        // console.log('arr[i-2] = ' + arr[i-2])
+        if(arr[i] % 2 && arr[i-1] % 2 && arr[i-2] % 2) {
+            console.log("That's odd!")
+        } else if(arr[i] % 2 == 0 && arr[i-1] % 2 == 0 && arr[i-2] % 2 == 0) {
+            console.log("Even more so!")
+        }
+    }
+}
+
+evensAndOdds([1,1,1,2,2,2,3,4,5,5,6,6,7,7,7,8,8,8,9])
+
+
+// Increment the Seconds
+// Given arr, add 1 to odd elements ([1], [3], etc.), console.log all values and return arr.
+
+const incrementSeconds = (arr) => {
+    for(let i = 1; i < arr.length; i += 2){
+        arr[i] += 1
+    }
+    arr.map(num => console.log(num))
+    return arr
+}
+
+console.log(incrementSeconds([2,3,4,5,6,7,8,9]))
+
+
+// Previous Lengths
+/* You are passed an array containing strings. Working within that same array, 
+replace each string with a number – the length of the string at previous array 
+index – and return the array. */
+
+const previousLength = (arr) => {
+    for(let i = 1; i < arr.length; i++){
+        // console.log(arr[i-1].length)
+        // console.log(arr[i])
+        arr[i] = arr[i-1].length
+    }
+    return arr
+}
+
+console.log(previousLength(['this', 'word', 'has', 'so', 'many', 'letters']))
+
+
+// Add Seven to Most
+/* Build a function that accepts an array. Return a new array with all values 
+except first, adding 7 to each. Do not alter the original array. */
+
+const addSevenToMost = (arr) => {
+    let plusSeven = [arr[0]]
+    for(let i = 1; i < arr.length; i++) {
+        plusSeven.push(arr[i] + 7)
+    }
+    return plusSeven
+}
+
+console.log(addSevenToMost([1,2,3,4,5,6,7,8]))
+
+
+// Reverse Array
+/* Given array, write a function to reverse values, in-place. 
+Example: reverse([3,1,6,4,2]) returns same array, containing [2,4,6,1,3]. */
+// Didn't use the built-in reverse()
+
+// const reverseArray = (arr) => {
+//     let temp = arr[0]
+//     for(let i = 0; )
+// }
+
+// console.log(reverseArray([3,1,6,4,2]))
