@@ -131,10 +131,9 @@ replace each string with a number – the length of the string at previous array
 index – and return the array. */
 
 const previousLength = (arr) => {
-    for(let i = 1; i < arr.length; i++){
-        // console.log(arr[i-1].length)
-        // console.log(arr[i])
-        arr[i] = arr[i-1].length
+    for(let i = arr.length-1; i >= 1; i--){
+        let temp = arr[i-1].length
+        arr[i] = temp
     }
     return arr
 }
@@ -208,3 +207,40 @@ const alwaysHungry = (arr) => {
 
 alwaysHungry(['food', 'money', 'shelter', 'water', 'food', 'clothing', 'food'])
 alwaysHungry(['money', 'shelter', 'water', 'clothing'])
+
+
+// Swap Toward the Center
+/* Given array, swap first and last, third and third-tolast, etc. 
+Input[true,42,"Ada",2,"pizza"] becomes ["pizza",42,"Ada",2,true].  
+Change [1,2,3,4,5,6] to [6,2,4,3,5,1]. */
+
+const swapTowardCenter = (arr) => {
+    let temp = 0
+    for(let i = 0; i < arr.length/2; i += 2){
+        temp = arr[i]
+        arr[i] = arr[arr.length-1-i]
+        arr[arr.length-1-i] = temp
+    }
+    return arr
+}
+
+console.log(swapTowardCenter([true,42,"Ada",2,"pizza"]))
+console.log(swapTowardCenter([1,2,3,4,5,6]))
+
+
+// Scale the Array
+// Given array arr and number num, multiply each arr value by num, and return the changed arr.
+
+const scaleArray = (arr, num) => {
+    for(let i = 0; i < arr.length; i++){
+        arr[i] *= num
+    }
+    return arr
+}
+
+console.log(scaleArray([1,2,3,4,5], 5))
+
+// Alternate with map method
+const scaleWithMap = (arr, num) => arr.map(item => item * num)
+
+console.log(scaleWithMap([1,2,3,4,5], 5))
