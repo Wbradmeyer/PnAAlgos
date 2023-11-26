@@ -162,9 +162,49 @@ console.log(addSevenToMost([1,2,3,4,5,6,7,8]))
 Example: reverse([3,1,6,4,2]) returns same array, containing [2,4,6,1,3]. */
 // Didn't use the built-in reverse()
 
-// const reverseArray = (arr) => {
-//     let temp = arr[0]
-//     for(let i = 0; )
-// }
+const reverseArray = (arr) => {
+    let temp = 0
+    for(let i = 0; i < arr.length/2; i++){
+        temp = arr[i]
+        arr[i] = arr[arr.length-1-i]
+        arr[arr.length-1-i] = temp
+    }
+    return arr
+}
 
-// console.log(reverseArray([3,1,6,4,2]))
+console.log(reverseArray([3,1,6,4,2]))
+
+
+// Outlook: Negative
+/* Given an array, create and return a new one containing all the values of the 
+provided array, made negative (not simply multiplied by -1). Given [1,-3,5], return [-1,-3,-5]. */
+
+const allToNegative = (arr) => {
+    let negatives = []
+    for(num of arr){
+        if(num > 0){
+            num = -(num)
+        }
+        negatives.push(num)
+    }
+    return negatives
+}
+
+console.log(allToNegative([1,-3,5]))
+console.log(allToNegative([2,3,-4,5,6,-7,-8]))
+
+// Always Hungry
+/* Create a function that accepts an array, and prints "yummy" each time one of 
+the values is equal to "food". If no array elements are "food", then print "I'm hungry" once. */
+
+const alwaysHungry = (arr) => {
+    if(!arr.includes('food')) console.log("I'm hungry")
+    for(item of arr){
+        if(item == 'food'){
+            console.log('yummy')
+        }
+    }
+}
+
+alwaysHungry(['food', 'money', 'shelter', 'water', 'food', 'clothing', 'food'])
+alwaysHungry(['money', 'shelter', 'water', 'clothing'])
