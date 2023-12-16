@@ -34,3 +34,21 @@ console.log(factorial(3))
 console.log(factorial(5))
 
 
+// Star At
+const drawLeftStars = (num) => {
+    let drawStars = ''
+    for(i = 1; i <= num; i++){
+        drawStars += '*'
+    }
+    return drawStars
+}
+
+console.log(drawLeftStars(15))
+
+const drawRightStars = (num) => {
+    return
+}
+
+const drawCenteredStars = (num) => {
+    return
+}
