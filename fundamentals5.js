@@ -34,7 +34,7 @@ console.log(factorial(3))
 console.log(factorial(5))
 
 
-// Star At
+// Star Art (specified stars left, right and center over 75 total characters)
 const drawLeftStars = (num) => {
     let drawStars = ''
     for(i = 1; i <= num; i++){
@@ -46,9 +46,74 @@ const drawLeftStars = (num) => {
 console.log(drawLeftStars(15))
 
 const drawRightStars = (num) => {
-    return
+    let drawStars = ''
+    let num_spaces = 75 - num
+    for(i = 1; i <= num + num_spaces; i++){
+        if(i <= num_spaces){
+            drawStars += ' '
+        } else {
+            drawStars += '*'
+        }
+    }
+    return drawStars
 }
 
+console.log(drawRightStars(20))
+
 const drawCenteredStars = (num) => {
-    return
+    let drawStars = ''
+    let num_spaces = 75 - num
+    for(i = 1; i <= num + num_spaces; i++){
+        if(i <= num_spaces/2 || i > num_spaces/2 + num){
+            drawStars += ' '
+        } else {
+            drawStars += '*'
+        }
+    }
+    return drawStars
 }
+
+console.log(drawCenteredStars(25))
+
+
+// Character Art (same as above with different chars)
+
+const drawLeftChars = (num, char) => {
+    let drawChars = ''
+    for(i = 1; i <= num; i++){
+        drawChars += char
+    }
+    return drawChars
+}
+
+console.log(drawLeftChars(15, '$'))
+
+const drawRightChars = (num, char) => {
+    let drawChars = ''
+    let num_spaces = 75 - num
+    for(i = 1; i <= num + num_spaces; i++){
+        if(i <= num_spaces){
+            drawChars += ' '
+        } else {
+            drawChars += char
+        }
+    }
+    return drawChars
+}
+
+console.log(drawRightChars(20, '%'))
+
+const drawCenteredChars = (num, char) => {
+    let drawChars = ''
+    let num_spaces = 75 - num
+    for(i = 1; i <= num + num_spaces; i++){
+        if(i <= num_spaces/2 || i > num_spaces/2 + num){
+            drawChars += ' '
+        } else {
+            drawChars += char
+        }
+    }
+    return drawChars
+}
+
+console.log(drawCenteredChars(25, '#'))
