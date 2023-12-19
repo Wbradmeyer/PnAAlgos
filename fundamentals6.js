@@ -67,3 +67,74 @@ const generateCoinChange = (cents) => {
 }
 
 generateCoinChange(94)
+
+
+// Messy Math Mashup
+/* Create a function messyMath(num) that will return the following sum: add all integers from 0 
+up to the given num, except for the following special cases of our count value:
+
+If current count (not num) is evenly divisible by 3, don’t add to the sum; skip to the next count;
+Otherwise, if the current count is evenly divisible by 7, include it twice in sum instead of once;
+Regardless of the above, if the current count is exactly 1/3 of num, return -1 immediately.
+For example, if given num is 4, return 7. If given num is 8, return 34. If given num is 15, return -1. */
+
+const messyMath = (num) => {
+    let sum = 0
+    for (let i = 0; i <= num; i++){
+        if (i == num/3) return -1
+        else if (i % 3 == 0) continue
+        else if (i % 7 == 0) sum += (i*2)
+        else sum += i
+    }
+    return sum
+}
+
+console.log(messyMath(4))
+console.log(messyMath(8))
+console.log(messyMath(15))
+
+
+// Twelve-Bar Blues
+/* Write a function that console.logs the number 1, then "chick", then "boom", 
+then "chick", then 2, then "chick", "boom", "chick" – continuing the same cycle 
+for each number up to (including) 12. */
+
+const twelveBarBlues = () => {
+    for (let i = 1; i <= 12; i++){
+        console.log(i)
+        console.log('chick')
+        console.log('boom')
+        console.log('chick')
+    }
+    return
+}
+
+twelveBarBlues()
+
+
+// Fibonacci
+/* Create a function to generate Fibonacci numbers. In this famous mathematical sequence, 
+each number is the sum of the previous two, starting with values 0 and 1. Your function 
+should accept one argument, an index into the sequence (where 0 corresponds to the initial 
+value, 4 corresponds to the value four later, etc). */
+
+
+// Sum to One Digit
+/* Kaitlin sees beauty in numbers, but also believes that less is more. Implement sumToOne(num) 
+that sums a given integer’s digits repeatedly until the sum is only one digit. Return that one-digit result. */
+
+const sumToOne = (num) => {
+    let sum = num
+    while (sum >= 10) {
+        let arr = sum.toString().split('')
+        sum = 0
+        for (let i = 0; i < arr.length; i++){
+            sum += Number(arr[i])
+        }
+    }
+    return sum
+}
+
+console.log(sumToOne(123)) // return 6
+console.log(sumToOne(457)) // return 7
+console.log(sumToOne(54323)) // return 8
