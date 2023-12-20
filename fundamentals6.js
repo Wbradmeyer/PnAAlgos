@@ -138,3 +138,9 @@ const sumToOne = (num) => {
 console.log(sumToOne(123)) // return 6
 console.log(sumToOne(457)) // return 7
 console.log(sumToOne(54323)) // return 8
+
+
+// Clock Hand Angles
+
+
+// Is Prime
