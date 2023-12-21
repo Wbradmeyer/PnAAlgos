@@ -141,6 +141,6 @@ console.log(sumToOne(54323)) // return 8
 
 
 // Clock Hand Angles
-
+// do this one thursday
 
 // Is Prime
