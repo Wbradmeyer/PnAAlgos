@@ -145,3 +145,21 @@ console.log(sumToOne(54323)) // return 8
 // hello
 
 // Is Prime
+/* Return whether a given integer is prime. Prime numbers are only evenly divisible by 
+themselves and 1. Many highly optimized solutions exist, but for now, just create one that 
+is easy to understand and debug. */
+
+const isPrime = (num) => {
+    for (i = 2; i < num; i++) {
+        if (num % i == 0) {
+            return false
+        }
+    }
+    return true
+}
+
+console.log(isPrime(11))
+console.log(isPrime(8))
+console.log(isPrime(7))
+console.log(isPrime(9))
+console.log(isPrime(41))
