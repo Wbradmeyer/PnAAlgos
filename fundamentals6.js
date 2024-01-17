@@ -118,6 +118,19 @@ each number is the sum of the previous two, starting with values 0 and 1. Your f
 should accept one argument, an index into the sequence (where 0 corresponds to the initial 
 value, 4 corresponds to the value four later, etc). */
 
+const fibonacci = (index) => {
+    let nums = [0, 1]
+    let add = 0
+    for(let i = 1; i < index; i++) {
+        add = nums[i] + nums[i-1]
+        nums.push(add)
+    }
+    return nums
+}
+
+console.log(fibonacci(4))
+console.log(fibonacci(8))
+
 
 // Sum to One Digit
 /* Kaitlin sees beauty in numbers, but also believes that less is more. Implement sumToOne(num) 
@@ -141,8 +154,7 @@ console.log(sumToOne(54323)) // return 8
 
 
 // Clock Hand Angles
-// do this one thursday
-// hello
+
 
 // Is Prime
 /* Return whether a given integer is prime. Prime numbers are only evenly divisible by 
