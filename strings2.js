@@ -11,8 +11,13 @@ const reverseString = (str) => {
 }
 
 console.log(reverseString('hello'))
+console.log(reverseString('creature'))
 
 
 // Remove Even-Length Strings
 // Build a standalone function to remove strings of even lengths from a given array. For array containing
 // ["Nope!","Its","Kris","starting","with","K!","(instead","of","Chris","with","C)","."], change that same array to ["Nope!","Its","Chris","."].
+
+const noEvens = arr => arr.filter(str => str.length % 2)
+
+console.log(noEvens(["Nope!","Its","Kris","starting","with","K!","(instead","of","Chris","with","C)","."]))
