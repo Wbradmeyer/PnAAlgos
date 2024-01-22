@@ -65,3 +65,33 @@ console.log(parensValid("N(0)t )0(k"))
 // Given a sequence of parentheses, braces and brackets, determine whether it is valid. Example:
 // "W(a{t}s[o(n{ c}o)m]e )h[e{r}e]!" => true. "D(i{a}l[ t]o)n{e" => false. "A(1)s[O (n]0{t) 0}k" => false.
 
+const bracesValid = str => {
+    let parens = 0
+    let braces = 0
+    let brackets = 0
+    for(let i = 0; i < str.length; i++){
+        if(str[i] == '('){
+            parens++
+        } else if(str[i] == ')'){
+            parens--
+            if(parens < 0) return false
+        } else if(str[i] == '{'){
+            braces++
+        } else if(str[i] == '}'){
+            braces--
+            if(braces < 0) return false
+        } else if(str[i] == '['){
+            brackets++
+        } else if(str[i] == ']'){
+            brackets--
+            if(brackets < 0) return false
+        }
+    }
+    if(!parens && !braces && !brackets) return true
+    else return false
+}
+
+console.log(bracesValid("W(a{t}s[o(n{ c}o)m]e )h[e{r}e]!"))
+console.log(bracesValid("D(i{a}l[ t]o)n{e"))
+// needs to be reworked for this one, crossing items
+console.log(bracesValid("A(1)s[O (n]0{t) 0}k"))
