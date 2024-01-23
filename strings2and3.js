@@ -105,9 +105,34 @@ console.log(bracesValid("A(1)s[O (n]0{t) 0}k"))
 // Second: now do ignore white space (spaces, tabs, returns), capitalization and punctuation.
 
 const isPalindrome = str => {
-    
+    for(let i = 0; i < str.length/2; i++){
+        if(str[i] !== str[str.length-1-i]){
+            return false
+        }
+    }
+    return true
 }
 
+console.log(isPalindrome("Able was I, ere I saw Elba"))
+console.log(isPalindrome("racecar"))
+console.log(isPalindrome("Dud"))
+
+const isPalindromeTwo = str => {
+    let alpha = 'abcdefghijklmnopqrstuvwxyz'
+    let arr = str.toLowerCase().split('').filter(char => alpha.includes(char))
+    // console.log(arr)
+    for(let i = 0; i < arr.length/2; i++){
+        if(arr[i] !== arr[arr.length-1-i]){
+            return false
+        }
+    }
+    return true
+}
+
+console.log(isPalindromeTwo("Fudge"))
+console.log(isPalindromeTwo("Able was I, ere I saw Elba"))
+console.log(isPalindromeTwo("racecar"))
+console.log(isPalindromeTwo("Dud"))
 
 // Longest Palindrome
 // For this challenge, we will look not only at the entire string provided but also at the substrings within it. 
