@@ -104,6 +104,9 @@ console.log(bracesValid("A(1)s[O (n]0{t) 0}k"))
 // return false.
 // Second: now do ignore white space (spaces, tabs, returns), capitalization and punctuation.
 
+const isPalindrome = str => {
+    
+}
 
 
 // Longest Palindrome
