@@ -109,9 +109,19 @@ class SLL {
         node.next = null
         return allNodes
     }
-    // addBack(value){
-
-    // }
+    addBack(value){
+        let newNode = new Node(value)
+        if(!this.head) {
+            this.head = newNode
+            return this
+        }
+        let currentNode = this.head
+        while(currentNode.next){
+            currentNode = currentNode.next
+        }
+        currentNode.next = newNode
+        return this
+    }
 }
 
 SLL1 = new SLL()
@@ -130,3 +140,6 @@ console.log(SLL1.addFront(5))
 // console.log(SLL1.average())
 console.log(SLL1.back())
 console.log(SLL1.removeBack())
+console.log(SLL1.addBack(76))
+console.log(SLL1.addBack(24))
+console.log(SLL1.display())
