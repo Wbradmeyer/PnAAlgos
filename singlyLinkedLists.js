@@ -90,19 +90,34 @@ class SLL {
         }
         return avg/this.length()
     }
+    back(){
+        if(!this.head) return null
+        let last = this.head
+        while(last.next){
+            last = last.next
+        }
+        return last.data
+    }
+    // removeBack(){
+
+    // }
+    // addBack(value){
+
+    // }
 }
 
 SLL1 = new SLL()
 console.log(SLL1.addFront(76))
 console.log(SLL1.addFront(2))
-console.log(SLL1.display())
+// console.log(SLL1.display())
 console.log(SLL1.addFront(11.41))
 console.log(SLL1.display())
-console.log(SLL1.contains(1))
-console.log(SLL1.contains(76))
-console.log(SLL1.length())
+// console.log(SLL1.contains(1))
+// console.log(SLL1.contains(76))
+// console.log(SLL1.length())
 console.log(SLL1.addFront(5))
-console.log(SLL1.length())
-console.log(SLL1.max())
-console.log(SLL1.min())
-console.log(SLL1.average())
+// console.log(SLL1.length())
+// console.log(SLL1.max())
+// console.log(SLL1.min())
+// console.log(SLL1.average())
+console.log(SLL1.back())
