@@ -80,6 +80,16 @@ class SLL {
         }
         return minVal
     }
+    average(){
+        if(!this.head) return null
+        let first = this.head 
+        let avg = 0
+        while(first){
+            avg += first.data
+            first = first.next
+        }
+        return avg/this.length()
+    }
 }
 
 SLL1 = new SLL()
@@ -95,3 +105,4 @@ console.log(SLL1.addFront(5))
 console.log(SLL1.length())
 console.log(SLL1.max())
 console.log(SLL1.min())
+console.log(SLL1.average())
