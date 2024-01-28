@@ -28,7 +28,13 @@ class SLL {
         return this.head.data
     }
     contains(value){
-        
+        if(!this.head) return false
+        let first = this.head
+        while(first){
+            if(first.data === value) return true
+            first = first.next
+        }
+        return false
     }
     display() {
         if(!this.head) return null
@@ -48,3 +54,5 @@ console.log(SLL1.addFront(2))
 console.log(SLL1.display())
 console.log(SLL1.addFront(11.41))
 console.log(SLL1.display())
+console.log(SLL1.contains(1))
+console.log(SLL1.contains(76))
