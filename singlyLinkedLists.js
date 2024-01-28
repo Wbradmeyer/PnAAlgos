@@ -8,7 +8,7 @@ class SLL {
     constructor(){
         this.head = null
     }
-    addFront(value) {
+    addFront(value) { //add a node to the front of the list
         let newNode = new Node(value)
         if(!this.head) {
             this.head = newNode
@@ -18,16 +18,16 @@ class SLL {
         this.head = newNode
         return this
     }
-    removeFront() {
+    removeFront() { //remove a node from the front of the list
         if(!this.head) return null
         this.head = this.head.next
         return this.head
     }
-    front() {
+    front() { //return the first value in the list
         if(!this.head) return null
         return this.head.data
     }
-    contains(value) {
+    contains(value) { //return true/false for whether the list contains the given value
         if(!this.head) return false
         let first = this.head
         while(first){
@@ -36,7 +36,7 @@ class SLL {
         }
         return false
     }
-    length() {
+    length() { //return the length of the list
         if(!this.head) return 0
         let first = this.head
         let count = 0
@@ -46,7 +46,7 @@ class SLL {
         }
         return count
     }
-    display() {
+    display() { //show all the values in the list
         if(!this.head) return null
         let first = this.head
         let allNodes = `${first.data}`
@@ -56,7 +56,7 @@ class SLL {
         }
         return allNodes
     }
-    max() {
+    max() { //show the highest value in the list
         if(!this.head) return null
         let first = this.head
         let maxVal = first.data
@@ -68,7 +68,7 @@ class SLL {
         }
         return maxVal
     }
-    min() {
+    min() { //show the lowest value in the list
         if(!this.head) return null
         let first = this.head
         let minVal = first.data
@@ -80,7 +80,7 @@ class SLL {
         }
         return minVal
     }
-    average(){
+    average(){ //show the average of all list values
         if(!this.head) return null
         let first = this.head 
         let avg = 0
@@ -90,7 +90,7 @@ class SLL {
         }
         return avg/this.length()
     }
-    back(){
+    back(){ //show the last list value
         if(!this.head) return null
         let last = this.head
         while(last.next){
@@ -98,9 +98,17 @@ class SLL {
         }
         return last.data
     }
-    // removeBack(){
-
-    // }
+    removeBack(){ //remove the list item in the list and return the altered list
+        if(!this.head) return null
+        let node = this.head
+        let allNodes = `${node.data}` 
+        while(node.next.next){
+            node = node.next
+            allNodes += `, ${node.data}`
+        }
+        node.next = null
+        return allNodes
+    }
     // addBack(value){
 
     // }
@@ -121,3 +129,4 @@ console.log(SLL1.addFront(5))
 // console.log(SLL1.min())
 // console.log(SLL1.average())
 console.log(SLL1.back())
+console.log(SLL1.removeBack())
