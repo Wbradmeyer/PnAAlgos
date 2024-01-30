@@ -122,6 +122,7 @@ class SLL {
         currentNode.next = newNode
         return this
     }
+    // hold for next
 }
 
 SLL1 = new SLL()
