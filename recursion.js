@@ -1,3 +1,30 @@
+// Count To Ten
+// Write a function, countToTen, that receives a number less than or equal to 10. 
+// countToTen should console.log every number between the given number and 10, including 10. Use recursion.
+
+const countToTen = (num) =>{
+    console.log(num)
+    if(num == 10) return
+    num++
+    return countToTen(num)
+}
+
+countToTen(4)
+
+// Backward String
+// Write a function, backwardString, that receives a string. It should log every letter in the string, 
+// from the last character to the first. Use recursion.
+
+const backwardString = (str, index) =>{
+    if(index == undefined) index = (str.length-1)
+    console.log(str[index])
+    if(index == 0) return
+    index--
+    return backwardString(str, index)
+}
+
+backwardString('happy')
+
 // Recursive Sigma
 // Write a recursive function that given a number returns the sum of integers from 1 to that number. 
 // Example: rSigma(5) = 15 (1+2+3+4+5); rSigma(2.5) = 3 (1+2); rSigma(-1) = 0.
