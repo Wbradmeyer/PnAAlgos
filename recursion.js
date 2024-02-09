@@ -42,3 +42,19 @@ const rFact = (num, prod) =>{
 console.log(rFact(3))
 console.log(rFact(6.5))
 console.log(rFact(-1))
+
+// Recursive Fibonacci
+// Write rFib(num). Recursively compute and return numth Fibonacci value. As earlier, 
+// treat first two (num = 0, num = 1) Fibonacci vals as 0 and 1.
+
+const rFib = (num) =>{
+    if(num == 0) return 0
+    if(num == 1) return 1
+    return rFib(num-1) + rFib(num-2)
+}
+
+console.log(rFib(2))
+console.log(rFib(3))
+console.log(rFib(4))
+console.log(rFib(5))
+console.log(rFib(6))
