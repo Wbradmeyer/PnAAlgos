@@ -57,6 +57,20 @@ console.log(reverseArray(array))
 // console.log(reverseArray([1,2,3,4]))
 console.log(array)
 
+// Sum Digits
+// Write a function, sumDigits, that sums all the digits of a given integer (assume positive). Use recursion.
+
+const sumDigits = (num, sum) =>{
+    if(!sum) sum = 0
+    if(!num) return sum
+    let str = num.toString()
+    let digit = str.slice(0, 1)
+    sum += Number(digit)
+    return sumDigits(str.slice(1), sum)
+}
+
+console.log(sumDigits(1234))
+
 // Recursive Sigma
 // Write a recursive function that given a number returns the sum of integers from 1 to that number. 
 // Example: rSigma(5) = 15 (1+2+3+4+5); rSigma(2.5) = 3 (1+2); rSigma(-1) = 0.
