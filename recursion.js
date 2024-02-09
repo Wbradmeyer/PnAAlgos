@@ -25,6 +25,19 @@ const backwardString = (str, index) =>{
 
 backwardString('happy')
 
+// Count Vowels
+// Write a function, countVowels, that accepts a string and returns the number of vowels in that string. Use recursion.
+
+const countVowels = (str, count) =>{
+    let vowels = 'aeiou'
+    if(count == undefined) count = 0
+    if(str.length == 1) return count
+    if(vowels.includes(str[0])) count++
+    return countVowels(str.slice(1), count)
+}
+
+console.log(countVowels('Four score and seven years'))
+
 // Recursive Sigma
 // Write a recursive function that given a number returns the sum of integers from 1 to that number. 
 // Example: rSigma(5) = 15 (1+2+3+4+5); rSigma(2.5) = 3 (1+2); rSigma(-1) = 0.
