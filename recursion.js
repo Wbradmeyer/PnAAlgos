@@ -57,6 +57,24 @@ console.log(reverseArray(array))
 // console.log(reverseArray([1,2,3,4]))
 console.log(array)
 
+// Is Palindrome
+// A palindrome is a word that is spelled the same forward and backward. For example, "LEVEL", "RACECAR", 
+// and "KAYAK" are all palindromes, while "MOTOR", "RUDDER", and "DOGGED" are not palidromes.
+// Write a recursive function, isPalindrome, to check if a string is a palindrome or not.
+
+const isPalindrome = (str, index) =>{
+    if(!index) index = 0
+    if(index >= str.length/2) return true
+    if(str[index].toLowerCase() != str[str.length-index-1].toLowerCase()) return false
+    else index++
+    return isPalindrome(str, index)
+}
+
+console.log(isPalindrome('Kayak'))
+console.log(isPalindrome('NEVERODDOREVEN'))
+console.log(isPalindrome('Tacocat'))
+console.log(isPalindrome('SELFLESS'))
+
 // Sum Digits
 // Write a function, sumDigits, that sums all the digits of a given integer (assume positive). Use recursion.
 
