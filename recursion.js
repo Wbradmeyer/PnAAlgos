@@ -167,3 +167,7 @@ console.log(rTrib(4))
 console.log(rTrib(5))
 console.log(rTrib(6))
 console.log(rTrib(6.5))
+
+// Array Sum
+// Write a function, arraySum, that accepts an array of numbers and returns the sum 
+// of all the numbers in the array (no matter how nested!).
