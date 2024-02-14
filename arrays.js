@@ -52,6 +52,21 @@ console.log(rotateArr([1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2
     1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
     1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9], 3))
 
+// Filter Range
+// Alan is good at breaking secret codes. One method is to eliminate values that lie outside of a 
+// specific known range. Given arr and values min and max, retain only the array values between min and max. 
+// Work in-place: return the array you are given, with values in original order. No built-in array functions.
+
+const filterRange = (arr, min, max) =>{
+    for(let i = arr.length-1; i >= 0; i--){
+        if(arr[i] < min || arr[i] > max){
+            arr.splice(i, 1)
+        }
+    }
+    return arr
+}
+
+console.log(filterRange([2,3,4,5,6,7,8,9,10,4,5,17,6], 3, 6))
 
 // Concat
 // Replicate JavaScript's concat(). Create a standalone function that accepts two arrays. 
