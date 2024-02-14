@@ -16,3 +16,38 @@ const reverseArr = arr =>{
 
 console.log(reverseArr([1,2,3,4,5]))
 console.log(reverseArr([1,2,3,4,5,6]))
+
+// Rotate
+// Implement rotateArr(arr, shiftBy) that accepts array and offset. Shift arr's values to the 
+// right by that amount. 'Wrap-around' any values that shift off array's end to the other side, 
+// so that no data is lost. Operate in-place: given ([1,2,3],1), change the array to [3,1,2]. Don't use built-in functions.
+// Second: allow negative shiftBy (shift L, not R).
+// Third: minimize memory usage. With no new array, handle arrays/shiftBys in the millions.
+// Fourth: minimize the touches of each element.
+
+const rotateArr = (arr, shiftBy) =>{
+    let shiftArr = [...arr]
+    for(let i=0; i < arr.length; i++){
+        if(i+shiftBy >= arr.length){
+            arr[i+shiftBy-arr.length] = shiftArr[i]
+        } else if(i+shiftBy < 0) {
+            arr[i+shiftBy+arr.length] = shiftArr[i]
+        } else {
+            arr[i+shiftBy] = shiftArr[i]
+        }
+    }
+    return arr
+}
+
+console.log(rotateArr([1,2,3,4,5], 1))
+console.log(rotateArr([1,2,3,4,5], 2))
+console.log(rotateArr([1,2,3,4,5], -1))
+console.log(rotateArr([1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
+    1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
+    1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
+    1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
+    1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
+    1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
+    1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
+    1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,
+    1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9], 3))
