@@ -68,6 +68,23 @@ const filterRange = (arr, min, max) =>{
 
 console.log(filterRange([2,3,4,5,6,7,8,9,10,4,5,17,6], 3, 6))
 
+const filterRange2 = (arr, min, max) =>{
+    let numsInRangeIndex = 0
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] >= min && arr[i] <= max){
+            let temp = arr[i]
+            arr[i] = arr[numsInRangeIndex]
+            arr[numsInRangeIndex] = temp
+
+            numsInRangeIndex++
+        }
+    }
+    arr.length = numsInRangeIndex
+    return arr
+}
+
+console.log(filterRange2([2,3,4,5,6,7,8,9,10,4,5,17,6], 3, 6))
+
 // Concat
 // Replicate JavaScript's concat(). Create a standalone function that accepts two arrays. 
 // Return a new array containing the first array's elements, followed by the second array's elements. 
@@ -82,3 +99,35 @@ const arrConcat = (arr1, arr2) =>{
 }
 
 console.log(arrConcat(['a','b'], [1,2]))
+
+// Remove Negatives
+// Implement removeNegatives() that accepts an array, removes negative values, and returns the same 
+// array (not a copy), preserving non-negatives’ order. As always, do not use built-in array functions.
+
+const removeNegatives = arr =>{
+    for(let i=0; i <arr.length; i++){
+        if(arr[i] < 0){
+            arr.splice(i, 1)
+        }
+    }
+    return arr
+}
+
+console.log(removeNegatives([1,-1,2,-2,3,-3]))
+
+const removeNegatives2 = arr =>{
+    let nonNegIndex = 0
+    for(let i=0; i < arr.length; i++){
+        if(arr[i] >= 0){
+            let temp = arr[i]
+            arr[i] = arr[nonNegIndex]
+            arr[nonNegIndex] = temp
+
+            nonNegIndex++
+        }
+    }
+    arr.length = nonNegIndex
+    return arr
+}
+
+console.log(removeNegatives2([1,-1,2,-2,3,-3]))
