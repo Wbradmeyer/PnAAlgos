@@ -143,3 +143,24 @@ const secondToLast = arr =>{
 
 console.log(secondToLast([42,true,4,"Kate",7]))
 
+// Second-Largest
+// Return the second-largest element of an array. Given [42,1,4,Math.PI,7], return 7. 
+// If the array is too short, return null.
+
+const secondLargest = arr =>{
+    if(arr.length < 2) return null
+    let largest = arr[0]
+    let second = 0
+    for(let i = 1; i < arr.length; i++){
+        if(arr[i] > largest){
+            second = largest
+            largest = arr[i]
+        } else if(arr[i] > second && arr[i] < largest){
+            second = arr[i]
+        }
+    }
+    return second
+}
+
+console.log(secondLargest([42,1,4,Math.PI,7]))
+console.log(secondLargest([7,1,4,Math.PI,42]))
