@@ -164,3 +164,16 @@ const secondLargest = arr =>{
 
 console.log(secondLargest([42,1,4,Math.PI,7]))
 console.log(secondLargest([7,1,4,Math.PI,42]))
+
+// Nth-to-Last
+// Return the element that is N-from-array’s-end. Given ([5,2,3,6,4,9,7],3), return 4. 
+// If the array is too short, return null.
+
+const nthToLast = (arr, n) =>{
+    if(n >= arr.length) return null
+    return(arr[arr.length-n])
+}
+
+console.log(nthToLast([5,2,3,6,4,9,7],3))
+console.log(nthToLast([5,2,3,6,4,9,7],7))
+
