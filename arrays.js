@@ -177,3 +177,26 @@ const nthToLast = (arr, n) =>{
 console.log(nthToLast([5,2,3,6,4,9,7],3))
 console.log(nthToLast([5,2,3,6,4,9,7],7))
 
+// Credit Card Validation
+// The Luhn formula is sometimes used to validate credit card numbers. Create the function isCreditCardValid(digitArr) 
+// that accepts an array of digits on the card (13-19 depending on the card), and returns a boolean whether 
+// the card digits satisfy the Luhn formula, as follows:
+
+// Set aside the last digit; do not include it in these calculations (until step 5);
+// Starting from the back, multiply the digits in odd positions (last, third-to-last, etc.) by 2;
+// If any results are larger than 9, subtract 9 from them;
+// Add all numbers (not just our odds) together;
+// Now add the last digit back in – the sum should be a multiple of 10.
+
+const isCreditCardValid = (arr) =>{
+    // loop backwards from the next to last value, decrementing by 2 on odds
+    for(let i = arr.length-2; i >= 0 ;i-=2){
+        arr[i] *= 2
+        if(arr[i] > 9) arr[i] -= 9
+    }
+    let sum = arr.reduce((a, b) => a+b, 0)
+    if(sum % 10 == 0) return true
+    else return false
+}
+
+console.log(isCreditCardValid([5,2,2,8,2]))
