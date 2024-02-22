@@ -217,3 +217,24 @@ const shuffle = (arr) =>{
 }
 
 console.log(shuffle([1,2,3,4,5,6,7]))
+
+// Remove Range
+// Given array, and indices start and end, remove vals in that index range, working in-place 
+// (hence shortening the array). Given ([20,30,40,50,60,70],2,4), change to [20,30,70] and return it.
+
+const removeRange = (arr, min, max) =>{
+    let remainingIndex = 0
+    for(let i=0; i < arr.length; i++) {
+        if(i < min || i > max){
+            let temp = arr[i]
+            arr[i] = arr[remainingIndex]
+            arr[remainingIndex] = temp
+            
+            remainingIndex++
+        }
+    }
+    arr.length = remainingIndex
+    return arr
+}
+
+console.log(removeRange([20,30,40,50,60,70],2,4))
