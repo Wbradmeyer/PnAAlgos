@@ -238,3 +238,25 @@ const removeRange = (arr, min, max) =>{
 }
 
 console.log(removeRange([20,30,40,50,60,70],2,4))
+
+// Intermediate Sums
+// You will be given an array of numbers. After every tenth element, add an additional element containing 
+// the sum of those ten values. If the array does not end aligned evenly with ten elements, add one last 
+// sum that includes those last elements not yet been included in one of the earlier sums. Given the 
+// array [1,2,1,2,1,2,1,2,1,2,1,2,1,2], change it to [1,2,1,2,1,2,1,2,1,2,15,1,2,1,2,6]
+
+const intermediateSums = (arr) =>{
+    let sum = 0
+    let arrWithSums = []
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i]
+        arrWithSums.push(arr[i])
+        if((i+1) % 10 === 0 || i === arr.length-1){
+            arrWithSums.push(sum)
+            sum = 0
+        }
+    }
+    return arrWithSums
+}
+
+console.log(intermediateSums([1,2,1,2,1,2,1,2,1,2,1,2,1,2]))
