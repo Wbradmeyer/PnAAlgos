@@ -260,3 +260,16 @@ const intermediateSums = (arr) =>{
 }
 
 console.log(intermediateSums([1,2,1,2,1,2,1,2,1,2,1,2,1,2]))
+
+// Double Trouble
+// Create a function that changes a given array to list each original element twice, retaining original order. 
+// Convert [4,"Ulysses",42,false] to [4,4,"Ulysses","Ulysses",42,42,false,false].
+
+const doubleTrouble = (arr) =>{
+    for(let i = 0; i < arr.length; i += 2){
+        arr.splice(i + 1, 0, arr[i])
+    }
+    return arr
+}
+
+console.log(doubleTrouble([4,"Ulysses",42,false]))
