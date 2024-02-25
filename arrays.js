@@ -273,3 +273,31 @@ const doubleTrouble = (arr) =>{
 }
 
 console.log(doubleTrouble([4,"Ulysses",42,false]))
+
+// Zip It
+// Create a standalone function that accepts two arrays and combines their values sequentially into a new array, 
+// at alternating indices starting with first array. Extra values from either array should be included afterward. 
+// Given [1,2] and [10,20,30,40], return new array containing [1,10,2,20,30,40].
+
+const zipArrays = (arr1, arr2) =>{
+    let zippedArr = []
+    let greater = 0
+    if(arr1.length > arr2.length){
+        greater = arr1.length
+    } else {
+        greater = arr2.length
+    }
+
+    for(let i=0; i < greater; i++){
+        if(i < arr1.length){
+            zippedArr.push(arr1[i])
+        }
+
+        if(i < arr2.length){
+            zippedArr.push(arr2[i])
+        }
+    }
+    return zippedArr
+}
+
+console.log(zipArrays([1,2], [10,20,30,40]))
