@@ -60,3 +60,23 @@ console.log(balanceIndex([-2,5,7,0,3]))
 console.log(balanceIndex([9,9]))
 console.log(balanceIndex([9,9,1,1,1,2,7]))
 console.log(balanceIndex([3,2,1,6,1,2,3]))
+
+// Array: Binary Search
+// Given a sorted array and a value, return whether the array contains that value. Do not sequentially iterate 
+// the array. Instead, ‘divide and conquer’, taking advantage of the fact that the array is sorted. As always, 
+// only use built-in functions that you are prepared to recreate (write yourself) on demand!
+
+const binarySearch = (arr, val) =>{
+    if(val < arr[0] || val > arr[arr.length-1]) return false
+    let index = Math.floor(arr.length/2)
+
+    while(index ){
+        if(val === arr[index]){
+            return true
+        } else if(val < arr[index]){
+            index = Math.floor(index/2)
+        }
+    }
+}
+
+console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]))
