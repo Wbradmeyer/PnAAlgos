@@ -135,3 +135,27 @@ const minSortedRotated = (arr) => {
 console.log(minSortedRotated([5, 6, 7, 8, 9, 10, 1, 2, 3, 4]));
 console.log(minSortedRotated(["Gigli","Jay is  cool","Mavis","Phoebe","Thurber","Anna","Celeste","Elon"]));
 
+// Flatten
+// Flatten a given array, eliminating nested and empty arrays. Do not alter it; return a new one retaining order. 
+// For [1,[2,3],4,[]] return [1,2,3,4].
+
+const flattenArray = (arr) => {
+    let flatArr = []
+    for(let i = 0; i < arr.length; i++){
+        if(!Array.isArray(arr[i])) {
+            flatArr.push(arr[i])
+        } else if(Array.isArray(arr[i]) && arr[i] != ''){
+            for(let j = 0; j < arr[i].length; j++){
+                flatArr.push(arr[i][j])
+            } 
+        }
+    }
+    return flatArr
+}
+
+console.log(flattenArray([1,[2,3],4,[]]))
+console.log(flattenArray([1,[2,4,0],5,[],6,5,0]))
+
+// Second: work ‘in-place’ in the given array (do not create another). Alter order if needed. 
+// Ex.: [1,[2,3],4,[]] could become [1,3,4,2].
+// Third: make your algorithm both in-place and stable. Do you need a return value?
