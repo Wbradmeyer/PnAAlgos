@@ -95,3 +95,43 @@ const binarySearch = (arr, val) =>{
 // console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25], 2))
 // console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25], -1))
 // console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25], 26))
+
+// Min of Sorted-Rotated
+// You will be given a numerical array that has first been sorted, then rotated by an unknown amount. 
+// Find and return the minimum value in that array. Don’t use built-in functions (surprise!). 
+
+const minSortedRotated = (arr) => {
+    let low = 0
+    let high = arr.length-1
+
+    while(low < high){
+        console.log(`low is ${arr[low]} and high is ${arr[high]}`)
+
+        if(arr[low] < arr[high]){
+            return arr[low]
+        }
+
+        let mid = Math.floor((low + high)/2)
+        console.log(`mid is ${arr[mid]}`)
+
+        if(arr[mid] < arr[mid-1]){
+            return arr[mid]
+        } 
+        
+        if(arr[mid] > arr[mid+1]){
+            return arr[mid+1]
+        }
+
+        if(arr[mid] > arr[low]){
+            low = mid+1
+        } else {
+            high = mid-1
+        }
+
+    }
+    return arr[low]
+}
+
+console.log(minSortedRotated([5, 6, 7, 8, 9, 10, 1, 2, 3, 4]));
+console.log(minSortedRotated(["Gigli","Jay is  cool","Mavis","Phoebe","Thurber","Anna","Celeste","Elon"]));
+
