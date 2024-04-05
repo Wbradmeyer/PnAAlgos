@@ -159,3 +159,53 @@ console.log(flattenArray([1,[2,4,0],5,[],6,5,0]))
 // Second: work ‘in-place’ in the given array (do not create another). Alter order if needed. 
 // Ex.: [1,[2,3],4,[]] could become [1,3,4,2].
 // Third: make your algorithm both in-place and stable. Do you need a return value?
+
+
+// Remove Duplicates
+// Remove array duplicates. Do not alter original. Return new array with results ‘stable’ (original order). 
+// For [1,2,1,3,4,2] return [1,2,3,4].
+
+const removeDuplicates = (arr) => {
+    let newArr = []
+    for(let i = 0; i < arr.length; i++){
+        if(!newArr.includes(arr[i])){
+            newArr.push(arr[i])
+        }
+    }
+    return newArr
+}
+
+console.log(removeDuplicates([1,2,1,3,4,2]))
+
+// Second: work ‘in-place’ in given array. Alter order if needed (stability is not required). 
+// Ex.: [1,2,1,3,4,2] could become [1,2,4,3].
+// Third: make it in-place and stable.
+
+const removeDupes2 = (arr) => {
+    for(let i = arr.length-1; i > 0; i--){
+        for(let j = 0; j < i; j++){
+            if(arr[i] === arr[j]){
+                arr.splice(i, 1)
+                break
+            }
+        }
+    }
+    return arr
+}
+
+console.log(removeDupes2([1,2,1,3,4,2]))
+console.log(removeDupes2([1,2,1,3,4,2,2,2,2,4,3,2,1,1,4]))
+
+// Fourth: eliminate any second (inner) loop.
+
+const removeDupes3 = (arr) => {
+    for(let i = arr.length-1; i > 0; i--){
+        if(arr.slice(0, i).includes(arr[i])){
+            arr.splice(i, 1)
+        }
+    }
+    return arr
+}
+
+console.log(removeDupes3([1,2,1,3,4,2]))
+console.log(removeDupes3([1,2,1,3,4,2,2,2,2,4,3,2,1,1,4]))
