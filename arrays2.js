@@ -209,3 +209,38 @@ const removeDupes3 = (arr) => {
 
 console.log(removeDupes3([1,2,1,3,4,2]))
 console.log(removeDupes3([1,2,1,3,4,2,2,2,2,4,3,2,1,1,4]))
+
+// Mode
+// Back in the Basic 13, you wrote code to compute an array’s minimum and maximum values. 
+// You also wrote code to determine the average value (the “mean”). What about the “mode” – 
+// the most common value in that data set. Create a function that, given an array, returns the 
+// most frequent value in the array.
+// Second: memory constraints prevent your using a new array. How does this affect your solution?
+
+const arrMode = (arr) => {
+    let active = 0
+    let most = 0
+    let mostCount = 0
+    let currentCount = 0
+
+    // loop through arr, counting how many times each element appears.
+    for(let i = 0; i < arr.length; i++){
+        active = arr[i]
+        currentCount = 0
+        console.log(`active is ${active}, most is ${most}, mostCount is ${mostCount}, currentCount is ${currentCount}`)
+        // loop again, comparing the count of each subsequent element
+        for(let j = i; j < arr.length; j++){
+            if(arr[j] === active){
+                currentCount++
+            }
+        }
+        // if new count is greater, replace count and most
+        if(currentCount > mostCount){
+            mostCount = currentCount
+            most = active
+        }
+    } 
+    return most
+}
+
+console.log(arrMode([1,2,1,3,4,2,2,2,2,4,3,2,1,1,4]))
