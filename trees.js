@@ -64,8 +64,15 @@ class BST {
         return currentNode.val
     }
 
-    // max() {//returns the largest value
-    // }
+    max() {//returns the largest value
+        let currentNode = this.root
+        if(!currentNode) return null
+
+        while(currentNode.right){
+            currentNode = currentNode.right
+        }
+        return currentNode.val
+    }
 }
 
 
@@ -82,3 +89,4 @@ Tree.add(6)
 // console.log(Tree.contains(7))
 
 // console.log(Tree.min())
+console.log(Tree.max())
