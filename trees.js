@@ -73,6 +73,25 @@ class BST {
         }
         return currentNode.val
     }
+
+    size(node) {// returns the number of values in the tree
+        if(node === undefined){
+            node = this.root
+        } 
+
+        if(node === null) return 0
+        else return 1 + this.size(node.left) + this.size(node.right)
+    }
+
+    isEmpty() {// returns whether the tree has no values
+        let currentNode = this.root
+        if(!currentNode) return true
+        else return false
+    }
+
+    height() {// returns the longest sequence from root to leaf
+        
+    }
 }
 
 
@@ -89,4 +108,8 @@ Tree.add(6)
 // console.log(Tree.contains(7))
 
 // console.log(Tree.min())
-console.log(Tree.max())
+// console.log(Tree.max())
+
+// console.log(Tree.isEmpty())
+
+console.log(Tree.size())
