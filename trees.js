@@ -38,12 +38,21 @@ class BST {
         }
     }
 
-    // contains(value) {// check if value is in BST
-    //     let currentNode = this.root
-    //     if(currentNode === value) return true
+    contains(value) {// check if value is in BST
+        let currentNode = this.root
+        
+        while(currentNode){
+            if(currentNode.val === value){
+                return true
+            } else if(value < currentNode.val){
+                currentNode = currentNode.left
+            } else {
+                currentNode = currentNode.right
+            }
+        }
 
-    //     while()
-    // }
+        return false
+    }
 }
 
 
@@ -55,3 +64,6 @@ Tree.add(3)
 Tree.add(2)
 Tree.add(6)
 console.log(Tree)
+
+console.log(Tree.contains(6))
+console.log(Tree.contains(7))
