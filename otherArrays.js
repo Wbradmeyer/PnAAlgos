@@ -35,3 +35,25 @@ const makeGrid = (cols, rows) => {
 }
 
 console.log(makeGrid(3,4))
+
+// Remove Columns
+// Write a function removeColumns that accepts two arguments: 1) originalGrid (two-dimensional array), 2) numColums (number)
+// removeColumns should return a new grid with the correct number of columns removed.
+
+const numGrid = [[1, 2, 3],
+                [1, 2, 3],
+                [1, 2, 3],
+                [1, 2, 3]]
+
+const removeColumns = (arr, num) => {
+    const newGrid = []
+    const row = arr[0].slice(0, arr[0].length - num)
+    let count = 1
+    while(count <= arr.length){
+        newGrid.push(row)
+        count++
+    }
+    return newGrid
+}
+
+console.log(removeColumns(numGrid, 2))
