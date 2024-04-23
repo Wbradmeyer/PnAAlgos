@@ -57,3 +57,26 @@ const removeColumns = (arr, num) => {
 }
 
 console.log(removeColumns(numGrid, 2))
+
+// Define a function, myJoin, that accepts up to two arguments: 1) array, 2) separator (string, optional)
+// myJoin should return a string with all of the elements from the array joined togther. 
+// The separator should separate the joined elements:
+
+const myJoin = (arr, char) => {
+    if(char == undefined || char == null){
+        char = ','
+    }
+    let newStr = arr[arr.length-1]
+    for(let i = arr.length -2; i >= 0; i--){
+        if(arr[i] == undefined || arr[i] == null){
+            newStr = `${char}` + newStr
+        }
+        newStr = `${arr[i]}${char}` + newStr
+    }
+    return newStr
+}
+
+console.log(myJoin(['let\'s', 'make', 'a', 'list'], ' '))
+console.log(myJoin(['a', 'b', 'c'], '+'))
+console.log(myJoin(['Peter', 'Paul', 'Mary']))
+console.log(myJoin(['hello', undefined, 'world'], '-'))
