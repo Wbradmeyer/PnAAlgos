@@ -70,8 +70,9 @@ const myJoin = (arr, char) => {
     for(let i = arr.length -2; i >= 0; i--){
         if(arr[i] == undefined || arr[i] == null){
             newStr = `${char}` + newStr
+        } else {
+            newStr = `${arr[i]}${char}` + newStr
         }
-        newStr = `${arr[i]}${char}` + newStr
     }
     return newStr
 }
