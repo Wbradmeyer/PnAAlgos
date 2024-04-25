@@ -81,3 +81,30 @@ console.log(myJoin(['let\'s', 'make', 'a', 'list'], ' '))
 console.log(myJoin(['a', 'b', 'c'], '+'))
 console.log(myJoin(['Peter', 'Paul', 'Mary']))
 console.log(myJoin(['hello', undefined, 'world'], '-'))
+
+// My Slice
+// Define a function, mySlice, that accepts up to three arguments: 1) originalArray, 2) startIdx (number, optional),
+// 3) endIdx (number, optional). mySlice should return a copy of the original array. The copy should include all 
+// of the elements from the orignal array, starting at and including the startIdx, up through and excluding the endIdx.
+// If the endIdx is undefined, include all the indices starting at and including the startIdx through the end of the original array.
+// If the startIdx is undefined, return a copy of the original array.
+// startIdx and endIdx can be negative numbers, in which case they count indices from the back of the array.
+
+const mySlice = (arr, startIdx, endIdx) => {
+    const sliceArr = []
+    if(startIdx == undefined) startIdx = 0
+    else if(startIdx < 0) startIdx = arr.length + startIdx
+
+    if(endIdx == undefined) endIdx = arr.length
+    else if(endIdx < 0) endIdx = arr.length + endIdx
+    
+    for(let i = startIdx; i < endIdx; i++){
+        sliceArr.push(arr[i])
+    }
+    return sliceArr
+}
+
+console.log(mySlice([1, 2, 3], 1, 2))
+console.log(mySlice([1, 2, 3], 1))
+console.log(mySlice([1, 2, 3]))
+console.log(mySlice([1, 2, 3], -1))
