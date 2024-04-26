@@ -97,7 +97,7 @@ const mySlice = (arr, startIdx, endIdx) => {
 
     if(endIdx == undefined) endIdx = arr.length
     else if(endIdx < 0) endIdx = arr.length + endIdx
-    
+
     for(let i = startIdx; i < endIdx; i++){
         sliceArr.push(arr[i])
     }
@@ -108,3 +108,27 @@ console.log(mySlice([1, 2, 3], 1, 2))
 console.log(mySlice([1, 2, 3], 1))
 console.log(mySlice([1, 2, 3]))
 console.log(mySlice([1, 2, 3], -1))
+
+// Rotate Array
+// Define a function, rotateArray, that accepts two arguments: 1) originalArray (array), 2) rotateNum (number)
+// If the rotateNum is positive, rotate should return a copy of the original array rotated to the right by the rotateNum of indices.
+// If the rotateNum is negative, rotate should return a copy of the original array rotated to the left by the rotateNum of indices.
+// If the rotateNum is 0, rotate should return a copy of the original array without rotating it.
+
+const rotateArray = (arr, num) => {
+    if(num == 0) return arr
+    const newArr = []
+    if(num > 0){
+        for(let i = -num; i < arr.length-num; i++){
+            newArr.push(arr[i])
+        }
+    } else {
+        for(let i = arr.length-num; i < arr.length-num; i++){
+            newArr.push(arr[i])
+        }
+    }
+}
+
+console.log(rotateArray([1, 2, 3, 4, 5], 2))
+console.log(rotateArray([1, 2, 3, 4, 5], -2))
+console.log(rotateArray([1, 2, 3, 4, 5], 0))
