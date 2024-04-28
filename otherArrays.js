@@ -118,15 +118,19 @@ console.log(mySlice([1, 2, 3], -1))
 const rotateArray = (arr, num) => {
     if(num == 0) return arr
     const newArr = []
+    let count = 0
+    let startIndex = 0
     if(num > 0){
-        for(let i = -num; i < arr.length-num; i++){
-            newArr.push(arr[i])
-        }
+        startIndex = arr.length-num
     } else {
-        for(let i = arr.length-num; i < arr.length-num; i++){
-            newArr.push(arr[i])
-        }
+        startIndex = -num
     }
+    for(let i = startIndex; count < arr.length; i++){
+        if(i == arr.length) i = 0
+        count++
+        newArr.push(arr[i])
+    }
+    return newArr
 }
 
 console.log(rotateArray([1, 2, 3, 4, 5], 2))
