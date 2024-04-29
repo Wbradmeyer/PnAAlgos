@@ -33,3 +33,23 @@ const lastFridayNight = (arr) => {
 console.log(lastFridayNight(transactions))
 
 
+// Compare Objects
+// Define a function, compareObjects, that accepts two objects as arguments.
+// compareObjects should return true if both objects have exactly the same key/value pairs. Otherwise, 
+// compareObjects should return false. Assume the objects are not nested.
+
+const compareObjects = (obj1, obj2) => {
+    const arr1 = Object.keys(obj1)
+    const arr2 = Object.keys(obj2)
+    for(const key in obj1){
+        if(arr1.length != arr2.length){
+            return false
+        } else if(obj1[key] != obj2[key]){
+            return false
+        }
+    }
+    return true
+}
+
+console.log(compareObjects({ name: 'nick' }, { name: 'nick' }))
+console.log(compareObjects({ name: 'zeke' }, { name: 'zeke', age: 12 }))
