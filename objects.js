@@ -53,3 +53,36 @@ const compareObjects = (obj1, obj2) => {
 
 console.log(compareObjects({ name: 'nick' }, { name: 'nick' }))
 console.log(compareObjects({ name: 'zeke' }, { name: 'zeke', age: 12 }))
+
+
+// Leet Translator
+// "Leet" or 1337 is a popular alternative alphabet used by internet "hackers".
+// Define a function called leetTranslator that take a string of normal characters.
+// leetTranslator should return a new string that is the translation of the original string into leet.
+// The leet codex is below, along with an array of english letters and an array of the corresponding leet characters. 
+// Use the two arrays to create a leetCodex object to use in making the translations.
+
+let letters = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
+let leetChars = ['@', '8', '(', '|)', '3', 'ph', 'g', '#','l', '_|', '|<', '1', "|'|'|", '/\/', '0', '|D', '(,)', '|2', '5', '+', '|_|', '|/', "|/|/'",'><', 'j', '2'];
+const leetObject = {}
+
+for(let i = 0; i < letters.length; i++){
+    leetObject[letters[i]] = leetChars[i]
+}
+
+const leetTranslator = (str) => {
+    let leetStr = ''
+    for(let i = 0; i < str.length; i++){
+        if(str[i] == ' '){
+            leetStr = `${leetStr} `
+        } else {
+            leetStr = `${leetStr}${leetObject[str[i].toLowerCase()]}`
+        }
+    }
+
+    return leetStr
+}
+
+console.log(leetTranslator('Coding Virtuoso'))
+
+
