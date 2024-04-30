@@ -86,3 +86,23 @@ const leetTranslator = (str) => {
 console.log(leetTranslator('Coding Virtuoso'))
 
 
+// Frequency Analysis
+// Define a function frequencyAnalysis that accepts a string of lower-case letters.
+// frequencyAnalysis should return an object containing the count for each letter in the string.
+
+const freqAnalysis = (str) => {
+    const count = {}
+    for(let i = 0; i < str.length; i++){
+        if(str[i] in count){
+            count[str[i]]++
+        } else if(str[i] == ' ') {
+            continue
+        } else {
+            count[str[i]] = 1
+        }
+    }
+    return count
+}
+
+console.log(freqAnalysis('abca'))
+console.log(freqAnalysis('abracadabra yo'))
