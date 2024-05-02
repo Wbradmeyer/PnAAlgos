@@ -189,3 +189,15 @@ console.log(attendanceCheck('Monday'))
 console.log(attendanceCheck('Wednesday'))
 
 
+// Say My Name
+// Define an object, me, that has a name property and a getGreeting method. getGreeting should return a greeting.
+
+const me = {
+    name: 'Ken',
+    getGreeting: function(){
+        return `Hi, name is ${this.name}!`
+    }
+}
+
+console.log(me.name)
+console.log(me.getGreeting())
