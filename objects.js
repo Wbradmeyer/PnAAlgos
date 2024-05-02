@@ -210,3 +210,33 @@ const you = {
 console.log(me.name)
 console.log(me.myGreeting())
 console.log(me.getGreeting(you))
+
+
+// Call Them All
+// Write a function callThemAll, that, given an object and a value, calls every method in the object, 
+// passing in the value as the argument with each call.
+// callThemAll should return an array with all of the returned values from each method invocation. 
+// The order of the elements in the returned array does not matter.
+
+let addsNums = {
+    addTen: function(num) {
+    return num + 10;
+    },
+
+    addTwenty: function(num) {
+    return num + 20;
+    },
+
+};
+
+const callThemAll = (obj, val) => {
+    const results = []
+    for(let method in obj){
+        if(typeof obj[method] == 'function'){
+            results.push(obj[method](val))
+        }
+    }
+    return results
+}
+
+console.log(callThemAll(addsNums, 100)); // => [110, 120]
