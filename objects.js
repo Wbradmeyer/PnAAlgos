@@ -191,13 +191,22 @@ console.log(attendanceCheck('Wednesday'))
 
 // Say My Name
 // Define an object, me, that has a name property and a getGreeting method. getGreeting should return a greeting.
+// Expand to greet a second object
 
 const me = {
     name: 'Ken',
-    getGreeting: function(){
+    myGreeting: function(){
         return `Hi, name is ${this.name}!`
+    },
+    getGreeting: function(obj){
+        return `Hi ${obj.name}, my name is ${this.name}!`
     }
 }
 
+const you = {
+    name: 'Tammy'
+}
+
 console.log(me.name)
-console.log(me.getGreeting())
+console.log(me.myGreeting())
+console.log(me.getGreeting(you))
