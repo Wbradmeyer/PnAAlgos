@@ -173,11 +173,19 @@ let classRoom = [
 
 const attendanceCheck = (day) => {
     const present = []
-    for(let student of classRoom){
-        present.push(classRoom[student])
+    for(let i in classRoom){
+        for(let student in classRoom[i]){
+            for(let schedule in classRoom[i][student]){
+                if(classRoom[i][student][schedule][day]){
+                    present.push(student)
+                }
+            }
+        }
     }
     return present
 }
 
 console.log(attendanceCheck('Monday'))
 console.log(attendanceCheck('Wednesday'))
+
+
