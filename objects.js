@@ -322,8 +322,15 @@ let tacoCatInc = {
         return currentValue
     },
 
-    sale: function(){
-
+    sale: function(ord){
+        let price = 0
+        for(key in ord){
+            price += this[key][ord[key]].cost
+            this[key][ord[key]].quantity--
+        }
+        this.cash += price
+        console.log(price)
+        return price
     }
 };
 
@@ -334,10 +341,10 @@ let order = {
     gourmetFishFilling: 'salmon'
 };
 
-tacoCat.Inc.sale(order); // => 7
-tacoCat.Inc.sale(order); // => 7
+tacoCatInc.sale(order); // => 7
+tacoCatInc.sale(order); // => 7
 
-console.log(tacoCat.gourmetFishFilling.tuna.quantity); // => 98
-console.log(tacoCat.cash); // => 14
+console.log(tacoCatInc.gourmetFishFilling.salmon.quantity); // => 98
+console.log(tacoCatInc.cash); // => 14
 
 tacoCatInc.currentInventory(); // => 1696
