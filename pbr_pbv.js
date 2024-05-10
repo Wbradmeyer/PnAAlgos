@@ -63,3 +63,53 @@ let dollyClone = cloneMachine(dolly);
 
 console.log(dollyClone) // {name: 'DollyClone', species: 'sheep', offspring: []}
 console.log(dolly) // {name: 'Dolly', species: 'sheep', offspring: ['DollyClone']}
+
+
+// My Splice
+// Write a 'mySplice' function that mirrors the behavior of JavaScript's .splice() array method. 
+// However, mySplice should accept the array to operate on as an argument, rather than being invoked as a 
+// method on that array. mySplice only needs to take one element to add to the array (the .splice method can 
+// actually take any number of values to add). Do not use .splice in your function.
+
+let myArray = [1, 2, 3];
+
+const mySplice = (arr, index, deleteCount, val) => {
+    const removed = []
+    let temp
+
+    if(deleteCount == 0 && val){
+        arr.push(val)
+        for(let i = index; i < arr.length; i++){
+            temp = arr[i]
+            arr[i] = arr[arr.length-1]
+            arr[arr.length-1] = temp
+        }
+    } else {
+        if(val){
+            arr.push(val)
+        }
+        while(deleteCount > 0){
+            removed.push(arr[index])
+            temp = arr[index]
+            arr[index] = arr[arr.length-1]
+            arr[arr.length-1] = temp
+            arr.pop()
+            index++
+            deleteCount--
+        }
+    }
+
+    console.log(removed)
+    return removed
+}
+
+mySplice(myArray, 1, 1, 'apples') // => [2]
+console.log(myArray)    // [1,'apples', 3]
+
+let ourStuff = ['food', 'trash', 'clothes']
+mySplice(ourStuff, 1, 0, 'more food')
+console.log(ourStuff)
+
+let funNums = [10, 20, 30, 40, 50, 60];
+mySplice(funNums, 2, 3);
+console.log(funNums)
