@@ -87,15 +87,27 @@ const mySplice = (arr, index, deleteCount, val) => {
     } else {
         if(val){
             arr.push(val)
-        }
-        while(deleteCount > 0){
-            removed.push(arr[index])
-            temp = arr[index]
-            arr[index] = arr[arr.length-1]
-            arr[arr.length-1] = temp
-            arr.pop()
-            index++
-            deleteCount--
+            while(deleteCount > 0 ){
+                temp = arr[index]
+                removed.push(arr[index])
+                arr[index] = arr[arr.length-1]
+                arr[arr.length-1] = temp
+                arr.pop()
+                index++
+                deleteCount--
+            }
+        } else {
+            while(deleteCount > 0 ){
+                temp = arr[index]
+                removed.push(arr[index])
+                if((index + deleteCount) < arr.length){
+                    arr[index] = arr[index + deleteCount]
+                    arr[index + deleteCount] = temp
+                }
+                arr.pop()
+                index++
+                deleteCount--
+            }
         }
     }
 
