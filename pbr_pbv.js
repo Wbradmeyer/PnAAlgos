@@ -97,6 +97,7 @@ const mySplice = (arr, index, deleteCount, val) => {
                 deleteCount--
             }
         } else {
+            // giving one too many problematic loops
             while(deleteCount > 0 ){
                 temp = arr[index]
                 removed.push(arr[index])
@@ -125,3 +126,28 @@ console.log(ourStuff)
 let funNums = [10, 20, 30, 40, 50, 60];
 mySplice(funNums, 2, 3);
 console.log(funNums)
+
+
+// Write a function that accepts an array and reverses that array in place. The behavior should mimic the 
+// behavior of the native .reverse() array method. However, your reverse function should accept the array to 
+// operate on as an argument, rather than being invoked as a method on that array.
+// Do not use the native .reverse() method in your own implementation.
+
+let arrToReverse = [1, 2, 3, 4];
+
+const reverseArr = (arr) => {
+    let temp
+    for(let i = 0; i < arr.length/2; i++){
+        temp = arr[i]
+        arr[i] = arr[arr.length-1-i]
+        arr[arr.length-1-i] = temp
+    }
+}
+
+reverseArr(arrToReverse);
+console.log(arrToReverse) // [4, 3, 2, 1]
+let secondArr = [1,3,5,7,4,2,0]
+reverseArr(secondArr)
+console.log(secondArr) // [0,2,4,7,5,3,1]
+
+
