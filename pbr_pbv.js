@@ -151,3 +151,20 @@ reverseArr(secondArr)
 console.log(secondArr) // [0,2,4,7,5,3,1]
 
 
+// Write a function, deeperCopy, that, unlike .slice, will deeply copy a two- dimensional array.
+
+const deeperCopy = (arr) => {
+    
+}
+
+let arrToCopy = [1, [2, 3]];
+
+let copy = deeperCopy(arrToCopy);
+copy[1].push(4);
+
+console.log(arrToCopy); // [1, [2, 3]]
+
+let copy2 = arrToCopy.slice();
+copy2[1].push(4);
+
+console.log(arrToCopy); // [1, [2, 3, 4]]
