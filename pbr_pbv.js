@@ -155,9 +155,12 @@ console.log(secondArr) // [0,2,4,7,5,3,1]
 
 const deeperCopy = (arr) => {
     let copy = []
-    // this is not a deep copy and will need to be refactored.
     for(let i = 0; i < arr.length; i++){
-        copy.push(arr[i])
+        if(Array.isArray(arr[i])){
+            copy.push(deeperCopy(arr[i]))
+        } else {
+            copy.push(arr[i])
+        }
     }
     return copy
 }
