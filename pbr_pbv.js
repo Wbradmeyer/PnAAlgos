@@ -154,7 +154,12 @@ console.log(secondArr) // [0,2,4,7,5,3,1]
 // Write a function, deeperCopy, that, unlike .slice, will deeply copy a two- dimensional array.
 
 const deeperCopy = (arr) => {
-    
+    let copy = []
+    // this is not a deep copy and will need to be refactored.
+    for(let i = 0; i < arr.length; i++){
+        copy.push(arr[i])
+    }
+    return copy
 }
 
 let arrToCopy = [1, [2, 3]];
