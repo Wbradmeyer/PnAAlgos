@@ -176,3 +176,5 @@ let copy2 = arrToCopy.slice();
 copy2[1].push(4);
 
 console.log(arrToCopy); // [1, [2, 3, 4]]
+
+
