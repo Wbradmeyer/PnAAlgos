@@ -309,3 +309,27 @@ chainReaction(0, [addTen, subtractFive, multiplyFive]); // => 25
 chainReaction(0, [subtractFive, multiplyFive, addTen]); // => -15
 
 
+// Biller Builder
+// Write a function billerBuilder that takes the name of a state as a parameter. billerBuilder should return a new 
+// function that takes the price of an item and returns the correct final price of the item, given the following:
+// if NY, charge 3% for shipping and 4% for sales tax
+// if NJ, charge 5% for shipping and 6.625% for sales tax
+
+const billerBuilder = (state) => {
+    let shipping, salesTax
+    if(state == 'NY'){
+        shipping = 1.03
+        salesTax = 1.04
+    } else if(state == 'NJ'){
+        shipping = 1.05
+        salesTax = 1.06625
+    }
+    const calc = (amount) => amount * shipping * salesTax
+    return calc
+}
+
+let newYorkBiller = billerBuilder('NY');
+console.log(newYorkBiller(100)) // => 107.12 (100 * 1.03 * 1.04)
+
+let newJersBiller = billerBuilder('NJ');
+console.log(newJersBiller(100)) // => 111.95625 (100 * 1.05 * 1.06625)
