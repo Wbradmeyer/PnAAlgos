@@ -256,3 +256,26 @@ whosASpecial(specialPets);
 // => Sadie the cat is very special! Layla the cat is very special! Bogie the dog is very special!
 
 
+// My For Each
+// Write a function myForEach that accepts an array and a callback function. The behavior of myForEach should mirror 
+// the functionality of the native .forEach() array method as closely as possible
+
+let sum = 0;
+
+function addToSum(num) {
+    sum += num;
+}
+
+let nums = [1, 2, 3];
+
+const myForEach = (arr, func) => {
+    for(let i = 0; i < arr.length; i++){
+        func(arr[i])
+    }
+}
+
+myForEach(nums, addToSum);
+
+console.log(sum); // 6
+
+
