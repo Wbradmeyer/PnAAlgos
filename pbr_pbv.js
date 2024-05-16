@@ -370,3 +370,26 @@ const partial = (callback, argA) => {
 
 let sumFive = partial(summer, 5);
 console.log(sumFive(10)) // => 15;
+
+
+// Call Count
+// Write a function, callCount, that returns a new function. The new function should return the number of times its 
+// been called.
+
+const callCount = () => {
+    let count = 1
+    const counterFunction = () => count++
+    return counterFunction
+}
+
+let newFunction1 = callCount();
+let newFunction2 = callCount();
+
+console.log(newFunction1()); // => 1
+console.log(newFunction1()); // => 2
+
+console.log(newFunction2()); // => 1
+console.log(newFunction2()); // => 2
+
+console.log(newFunction1())
+console.log(newFunction2())
