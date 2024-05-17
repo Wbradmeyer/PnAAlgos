@@ -393,3 +393,25 @@ console.log(newFunction2()); // => 2
 
 console.log(newFunction1())
 console.log(newFunction2())
+
+
+// Stringify
+// Define a function, stringify, that takes a callback and returns a new function. When the new function is called, 
+// it should call the callback, and return the value returned by the callback, but not before explicitly coercing the 
+// returned value to a string.
+
+function returnsANumber() {
+    return 100;
+}
+
+const stringify = (func) => {
+    const strFunc = () => {
+        let str = func()
+        return str.toString()
+    }
+    return strFunc
+}
+
+let newFunction = stringify(returnsANumber);
+console.log(newFunction()); // => '100'
+console.log(typeof newFunction())
