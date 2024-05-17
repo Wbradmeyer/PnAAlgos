@@ -244,15 +244,25 @@ console.log(typeof newFunction())
 // returned dogBreeder function should use the default values defined when dogBreeder was called.
 // You can copy over the solution code from dogBreeder if you'd like.
 
-const getDogBreeder = () => {
+const getDogBreeder = (dogName, dogAge) => {
+    const dog = {name: dogName, age: dogAge}
 
-    
+    const dogBreeder = (var1, var2) => {
+        const newDog = {...dog}
+        if(typeof var1 == 'string') newDog.name = var1
+        else if(typeof var1 == 'number') newDog.age = var1
+        if(var2) newDog.age = var2
+        return newDog
+    }
+    return dogBreeder
 }
 
 let puppyFarm = getDogBreeder('Snoopy', 0);
 let rescueShelter = getDogBreeder('Odie', 3);
 
-puppyFarm('Olaf', 3); // => {name: 'Olaf', age: 3};
-puppyFarm(2); // => {name: 'Snoopy', age: 2}
+console.log(puppyFarm('Olaf', 3)); // => {name: 'Olaf', age: 3};
+console.log(puppyFarm(2)); // => {name: 'Snoopy', age: 2}
 
-rescueShelter(); // => {'Odie', 3}
+console.log(rescueShelter()); // => {'Odie', 3}
+
+
