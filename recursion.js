@@ -25,6 +25,20 @@ const backwardString = (str, index) =>{
 
 backwardString('happy')
 
+// Sum Nums
+// Write a function, sumNums, that takes a number greater than 1 and returns the sum of all the numbers between the given number and 1. Use recursion.
+
+const sumNums = (num, sum) => {
+    if(!sum) sum = 0
+    if(!num) return sum
+    sum += num
+    num--
+    return sumNums(num, sum)
+}
+
+console.log(sumNums(3)) // 6
+console.log(sumNums(4))
+
 // Count Vowels
 // Write a function, countVowels, that accepts a string and returns the number of vowels in that string. Use recursion.
 
