@@ -185,3 +185,18 @@ console.log(rTrib(6.5))
 // Array Sum
 // Write a function, arraySum, that accepts an array of numbers and returns the sum 
 // of all the numbers in the array (no matter how nested!).
+
+const arraySum = (arr, index, sum) => {
+    if(!sum) sum = 0
+    if(!index) index = 0
+    if(Array.isArray(arr[index])){
+        sum += arraySum(arr[index])
+    } else {
+        sum += arr[index]
+    }
+    // if(index == arr.length) return sum
+    index++
+    return arraySum(arr, index, sum)
+}
+
+console.log(arraySum([1, [2, 3, [4]]])) // => 10
