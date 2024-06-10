@@ -194,9 +194,10 @@ const arraySum = (arr, index, sum) => {
     } else {
         sum += arr[index]
     }
-    // if(index == arr.length) return sum
     index++
+    if(index == arr.length) return sum
     return arraySum(arr, index, sum)
 }
 
 console.log(arraySum([1, [2, 3, [4]]])) // => 10
+console.log(arraySum([1, [2, 3, [4]], [5, 6]])) // => 10
