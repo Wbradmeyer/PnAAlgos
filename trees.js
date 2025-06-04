@@ -89,8 +89,11 @@ class BST {
         else return false
     }
 
-    height() {// returns the longest sequence from root to leaf
-        
+    height(root) {// returns the longest sequence from root to leaf
+        if(!root) return -1
+        let leftHeight = this.height(root.left)
+        let rightHeight = this.height(root.right)
+        return Math.max(leftHeight, rightHeight) + 1
     }
 }
 
@@ -102,7 +105,7 @@ Tree.add(13)
 Tree.add(3)
 Tree.add(2)
 Tree.add(6)
-// console.log(Tree)
+console.log(Tree)
 
 // console.log(Tree.contains(6))
 // console.log(Tree.contains(7))
@@ -113,3 +116,4 @@ Tree.add(6)
 // console.log(Tree.isEmpty())
 
 console.log(Tree.size())
+console.log(Tree.height(Tree.root))
